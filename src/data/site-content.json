@@ -178,10 +178,6 @@
         {
           "name": "WebView Micro Frontends",
           "icon": "webview"
-        },
-        {
-          "name": "SwiftUI",
-          "icon": "android"
         }
       ]
     }
