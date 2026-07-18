@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { photo } from "@/lib/profile-data";
 
 function clamp(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, value));
@@ -69,7 +70,7 @@ export default function AboutPortrait() {
         className="absolute -inset-y-10 inset-x-0 will-change-transform"
       >
         <Image
-          src="/profile.png"
+          src={`${photo.path}?v=${photo.version}`}
           alt="Portrait of Irfandio Daffa Agustantio"
           fill
           priority
@@ -78,7 +79,7 @@ export default function AboutPortrait() {
         />
         <div ref={monoRef} className="absolute inset-0">
           <Image
-            src="/profile.png"
+            src={`${photo.path}?v=${photo.version}`}
             alt=""
             aria-hidden="true"
             fill

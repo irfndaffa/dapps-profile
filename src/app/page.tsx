@@ -310,6 +310,13 @@ export default function Home() {
         <div className="mx-auto flex max-w-5xl flex-col gap-2 px-5 py-8 text-xs text-ink-soft sm:flex-row sm:items-center sm:justify-between sm:px-8">
           <p>
             © {new Date().getFullYear()} {profile.name}
+            <a
+              href="/admin"
+              aria-label="Admin"
+              className="ml-2 opacity-20 transition-opacity duration-200 hover:opacity-60 focus-visible:opacity-100"
+            >
+              ·
+            </a>
           </p>
           <p>
             <a
