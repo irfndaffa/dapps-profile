@@ -3,6 +3,7 @@ import ExperienceAccordion from "@/components/experience-accordion";
 import MobileNav from "@/components/mobile-nav";
 import Reveal from "@/components/reveal";
 import StatCounter from "@/components/stat-counter";
+import ThemeToggle from "@/components/theme-toggle";
 import {
   achievement,
   activities,
@@ -49,6 +50,7 @@ export default function Home() {
             ))}
           </div>
           <div className="flex items-center gap-3">
+            <ThemeToggle />
             <MobileNav links={navLinks} />
             <a
               href="#contact"

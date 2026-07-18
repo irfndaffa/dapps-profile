@@ -13,10 +13,22 @@
   --accent: oklch(56% 0.19 255);
   --accent-hover: oklch(50% 0.19 255);
   --hairline: oklch(89.5% 0.003 260);
+  color-scheme: light;
 
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --dur-quick: 200ms;
   --dur-reveal: 650ms;
+}
+
+:root[data-theme="dark"] {
+  --paper: oklch(16% 0.005 260);
+  --paper-alt: oklch(21% 0.006 260);
+  --ink: oklch(96% 0.002 260);
+  --ink-soft: oklch(68% 0.012 265);
+  --accent: oklch(70% 0.16 255);
+  --accent-hover: oklch(76% 0.15 255);
+  --hairline: oklch(30% 0.008 260);
+  color-scheme: dark;
 }
 
 @theme inline {
@@ -50,6 +62,9 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   position: relative;
+  transition:
+    background-color var(--dur-reveal) var(--ease-out),
+    color var(--dur-reveal) var(--ease-out);
 }
 
 /* Aurora — a quiet, slow-drifting gradient wash behind the hero.
