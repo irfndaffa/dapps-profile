@@ -1,4 +1,5 @@
 import ExperienceAccordion from "@/components/experience-accordion";
+import MobileNav from "@/components/mobile-nav";
 import Reveal from "@/components/reveal";
 import StatCounter from "@/components/stat-counter";
 import TiltPhoto from "@/components/tilt-photo";
@@ -43,12 +44,15 @@ export default function Home() {
               </a>
             ))}
           </div>
-          <a
-            href="#contact"
-            className="rounded-full bg-accent px-3.5 py-1.5 text-xs font-medium text-white transition-colors duration-200 hover:bg-accent-hover active:opacity-80"
-          >
-            Contact
-          </a>
+          <div className="flex items-center gap-3">
+            <MobileNav links={navLinks} />
+            <a
+              href="#contact"
+              className="rounded-full bg-accent px-3.5 py-1.5 text-xs font-medium text-white transition-colors duration-200 hover:bg-accent-hover active:opacity-80"
+            >
+              Contact
+            </a>
+          </div>
         </nav>
       </header>
 
