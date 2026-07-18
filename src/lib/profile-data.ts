@@ -34,10 +34,16 @@ function yearsSince(start: Date) {
 
 export const experience: Experience[] = [
   {
+    role: "Backend Software Engineer",
+    company: "PT Prudential Life Assurance",
+    period: "Jul 2026 — Present",
+    current: true,
+    highlights: [],
+  },
+  {
     role: "Backend Developer",
     company: "Hyperscal Digital ID",
-    period: "Jan 2026 — Present",
-    current: true,
+    period: "Jan 2026 — Jul 2026",
     highlights: [
       "Develop and maintain core backend utilities and shared services using Go.",
       "Build reusable helper services consumed by multiple product teams.",
@@ -57,6 +63,7 @@ export const experience: Experience[] = [
       "Implemented data streaming solutions with Apache Kafka.",
       "Developed backend services using Node.js and Sequelize ORM.",
       "Maintained enterprise applications and supported production environments.",
+      "Developed backend services using IBM Software AG WebMethods.",
     ],
   },
   {

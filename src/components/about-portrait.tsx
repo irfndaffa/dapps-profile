@@ -64,7 +64,10 @@ export default function AboutPortrait() {
       ref={containerRef}
       className="relative h-[56vh] min-h-[380px] max-h-[680px] overflow-hidden sm:h-[72vh]"
     >
-      <div ref={frameRef} className="absolute -inset-y-10 inset-x-0 will-change-transform">
+      <div
+        ref={frameRef}
+        className="absolute -inset-y-10 inset-x-0 will-change-transform"
+      >
         <Image
           src="/profile.png"
           alt="Portrait of Irfandio Daffa Agustantio"
