@@ -12,7 +12,9 @@ export async function loginAction(
   const password = String(formData.get("password") ?? "");
 
   if (!process.env.ADMIN_PASSWORD) {
-    return { error: "Admin login isn't configured yet (missing ADMIN_PASSWORD)." };
+    return {
+      error: "Admin login isn't configured yet (missing ADMIN_PASSWORD).",
+    };
   }
 
   if (!password || !verifyPassword(password)) {

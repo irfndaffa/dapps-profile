@@ -17,7 +17,7 @@ function getConfig() {
 
 function authHeaders(token: string) {
   return {
-    Authorization: `Bearer ${token}`,
+    Authorization: `token ${token}`,
     Accept: "application/vnd.github+json",
     "X-GitHub-Api-Version": "2022-11-28",
   };
@@ -60,23 +60,28 @@ export async function commitRepoFile(options: {
     ? options.content
     : Buffer.from(options.content, "utf-8").toString("base64");
 
-  const res = await fetch(`${API_BASE}/repos/${repo}/contents/${options.path}`, {
-    method: "PUT",
-    headers: {
-      ...authHeaders(token),
-      "Content-Type": "application/json",
+  const res = await fetch(
+    `${API_BASE}/repos/${repo}/contents/${options.path}`,
+    {
+      method: "PUT",
+      headers: {
+        ...authHeaders(token),
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        message: options.message,
+        content: base64Content,
+        branch,
+        ...(existing ? { sha: existing.sha } : {}),
+      }),
     },
-    body: JSON.stringify({
-      message: options.message,
-      content: base64Content,
-      branch,
-      ...(existing ? { sha: existing.sha } : {}),
-    }),
-  });
+  );
 
   if (!res.ok) {
     const body = await res.text();
-    throw new Error(`Failed to commit ${options.path} to GitHub (${res.status}): ${body}`);
+    throw new Error(
+      `Failed to commit ${options.path} to GitHub (${res.status}): ${body}`,
+    );
   }
 
   return res.json();

@@ -38,7 +38,10 @@ export async function updateContactAction(contact: SiteContent["contact"]) {
   if (!email || !linkedin) {
     throw new Error("Email and LinkedIn URL are required.");
   }
-  await updateSiteContent({ contact: { email, linkedin } }, "Update contact info");
+  await updateSiteContent(
+    { contact: { email, linkedin } },
+    "Update contact info",
+  );
 }
 
 export async function saveExperienceAction(list: Experience[]) {

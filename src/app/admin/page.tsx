@@ -37,7 +37,9 @@ export default async function AdminPage() {
 
       {loadError ? (
         <div className="mt-8 rounded-2xl border border-hairline bg-paper-alt p-6 text-sm text-ink-soft">
-          <p className="font-medium text-ink">Couldn&rsquo;t load live content.</p>
+          <p className="font-medium text-ink">
+            Couldn&rsquo;t load live content.
+          </p>
           <p className="mt-2">{loadError}</p>
           <p className="mt-2">
             Make sure <code>GITHUB_TOKEN</code> (a token with write access to

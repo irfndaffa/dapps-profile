@@ -2,7 +2,12 @@
 
 import { useState, useTransition } from "react";
 import type { SiteContent } from "@/lib/site-content-store";
-import type { Experience, Skill, SkillGroup, SkillIcon } from "@/lib/profile-data";
+import type {
+  Experience,
+  Skill,
+  SkillGroup,
+  SkillIcon,
+} from "@/lib/profile-data";
 import { skillIconMap } from "@/lib/skill-icons";
 import {
   saveExperienceAction,
@@ -169,7 +174,9 @@ function ExperienceEditor({ initial }: { initial: Experience[] }) {
   const { isPending, status, run } = useSaveStatus();
 
   function updateJob(index: number, patch: Partial<Experience>) {
-    setJobs((prev) => prev.map((job, i) => (i === index ? { ...job, ...patch } : job)));
+    setJobs((prev) =>
+      prev.map((job, i) => (i === index ? { ...job, ...patch } : job)),
+    );
   }
 
   function updateHighlight(jobIndex: number, hIndex: number, value: string) {
@@ -178,7 +185,9 @@ function ExperienceEditor({ initial }: { initial: Experience[] }) {
         i === jobIndex
           ? {
               ...job,
-              highlights: job.highlights.map((h, hi) => (hi === hIndex ? value : h)),
+              highlights: job.highlights.map((h, hi) =>
+                hi === hIndex ? value : h,
+              ),
             }
           : job,
       ),
@@ -198,7 +207,9 @@ function ExperienceEditor({ initial }: { initial: Experience[] }) {
   return (
     <div>
       <div className="flex items-center justify-between">
-        <h2 className="text-lg font-semibold tracking-tight">Work experience</h2>
+        <h2 className="text-lg font-semibold tracking-tight">
+          Work experience
+        </h2>
         <button
           type="button"
           onClick={() => setJobs((prev) => [emptyExperience(), ...prev])}
@@ -210,7 +221,10 @@ function ExperienceEditor({ initial }: { initial: Experience[] }) {
 
       <div className="mt-4 space-y-6">
         {jobs.map((job, i) => (
-          <div key={i} className="rounded-2xl border border-hairline bg-paper p-5">
+          <div
+            key={i}
+            className="rounded-2xl border border-hairline bg-paper p-5"
+          >
             <div className="grid gap-3 sm:grid-cols-2">
               <input
                 placeholder="Role"
@@ -273,7 +287,9 @@ function ExperienceEditor({ initial }: { initial: Experience[] }) {
               </div>
               <button
                 type="button"
-                onClick={() => updateJob(i, { highlights: [...job.highlights, ""] })}
+                onClick={() =>
+                  updateJob(i, { highlights: [...job.highlights, ""] })
+                }
                 className={`mt-2 ${ghostButtonClass}`}
               >
                 + Add highlight
@@ -297,7 +313,9 @@ function ExperienceEditor({ initial }: { initial: Experience[] }) {
               </button>
               <button
                 type="button"
-                onClick={() => setJobs((prev) => prev.filter((_, x) => x !== i))}
+                onClick={() =>
+                  setJobs((prev) => prev.filter((_, x) => x !== i))
+                }
                 className="ml-auto text-red-600 transition-colors duration-200 hover:text-red-700"
               >
                 Delete role
@@ -331,16 +349,24 @@ function SkillsEditor({ initial }: { initial: SkillGroup[] }) {
   const { isPending, status, run } = useSaveStatus();
 
   function updateGroup(index: number, patch: Partial<SkillGroup>) {
-    setGroups((prev) => prev.map((g, i) => (i === index ? { ...g, ...patch } : g)));
+    setGroups((prev) =>
+      prev.map((g, i) => (i === index ? { ...g, ...patch } : g)),
+    );
   }
 
-  function updateItem(groupIndex: number, itemIndex: number, patch: Partial<Skill>) {
+  function updateItem(
+    groupIndex: number,
+    itemIndex: number,
+    patch: Partial<Skill>,
+  ) {
     setGroups((prev) =>
       prev.map((g, i) =>
         i === groupIndex
           ? {
               ...g,
-              items: g.items.map((item, ii) => (ii === itemIndex ? { ...item, ...patch } : item)),
+              items: g.items.map((item, ii) =>
+                ii === itemIndex ? { ...item, ...patch } : item,
+              ),
             }
           : g,
       ),
@@ -362,7 +388,10 @@ function SkillsEditor({ initial }: { initial: SkillGroup[] }) {
 
       <div className="mt-4 space-y-6">
         {groups.map((group, gi) => (
-          <div key={gi} className="rounded-2xl border border-hairline bg-paper p-5">
+          <div
+            key={gi}
+            className="rounded-2xl border border-hairline bg-paper p-5"
+          >
             <div className="grid gap-3 sm:grid-cols-2">
               <input
                 placeholder="Group title"
@@ -384,12 +413,16 @@ function SkillsEditor({ initial }: { initial: SkillGroup[] }) {
                   <input
                     placeholder="Skill name"
                     value={item.name}
-                    onChange={(e) => updateItem(gi, ii, { name: e.target.value })}
+                    onChange={(e) =>
+                      updateItem(gi, ii, { name: e.target.value })
+                    }
                     className={inputClass}
                   />
                   <select
                     value={item.icon}
-                    onChange={(e) => updateItem(gi, ii, { icon: e.target.value as SkillIcon })}
+                    onChange={(e) =>
+                      updateItem(gi, ii, { icon: e.target.value as SkillIcon })
+                    }
                     className={inputClass}
                   >
                     {SKILL_ICON_KEYS.map((icon) => (
@@ -401,7 +434,9 @@ function SkillsEditor({ initial }: { initial: SkillGroup[] }) {
                   <button
                     type="button"
                     onClick={() =>
-                      updateGroup(gi, { items: group.items.filter((_, x) => x !== ii) })
+                      updateGroup(gi, {
+                        items: group.items.filter((_, x) => x !== ii),
+                      })
                     }
                     className="text-xs text-ink-soft transition-colors duration-200 hover:text-red-600"
                   >
@@ -414,7 +449,10 @@ function SkillsEditor({ initial }: { initial: SkillGroup[] }) {
               type="button"
               onClick={() =>
                 updateGroup(gi, {
-                  items: [...group.items, { name: "", icon: SKILL_ICON_KEYS[0] }],
+                  items: [
+                    ...group.items,
+                    { name: "", icon: SKILL_ICON_KEYS[0] },
+                  ],
                 })
               }
               className={`mt-2 ${ghostButtonClass}`}
@@ -425,7 +463,9 @@ function SkillsEditor({ initial }: { initial: SkillGroup[] }) {
             <div className="mt-4 border-t border-hairline pt-3 text-right">
               <button
                 type="button"
-                onClick={() => setGroups((prev) => prev.filter((_, x) => x !== gi))}
+                onClick={() =>
+                  setGroups((prev) => prev.filter((_, x) => x !== gi))
+                }
                 className="text-xs text-red-600 transition-colors duration-200 hover:text-red-700"
               >
                 Delete group
@@ -450,7 +490,11 @@ function SkillsEditor({ initial }: { initial: SkillGroup[] }) {
   );
 }
 
-function ContactEditor({ initial }: { initial: { email: string; linkedin: string } }) {
+function ContactEditor({
+  initial,
+}: {
+  initial: { email: string; linkedin: string };
+}) {
   const [contact, setContact] = useState(initial);
   const { isPending, status, run } = useSaveStatus();
 
@@ -467,7 +511,9 @@ function ContactEditor({ initial }: { initial: { email: string; linkedin: string
         <input
           placeholder="LinkedIn URL"
           value={contact.linkedin}
-          onChange={(e) => setContact((c) => ({ ...c, linkedin: e.target.value }))}
+          onChange={(e) =>
+            setContact((c) => ({ ...c, linkedin: e.target.value }))
+          }
           className={inputClass}
         />
       </div>
@@ -486,7 +532,11 @@ function ContactEditor({ initial }: { initial: { email: string; linkedin: string
   );
 }
 
-function PhotoEditor({ initial }: { initial: { path: string; version: number } }) {
+function PhotoEditor({
+  initial,
+}: {
+  initial: { path: string; version: number };
+}) {
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
   const { isPending, status, run } = useSaveStatus();
@@ -521,7 +571,9 @@ function PhotoEditor({ initial }: { initial: { path: string; version: number } }
             onChange={handleFileChange}
             className="text-sm"
           />
-          <p className="mt-1 text-xs text-ink-soft">PNG, JPEG, or WebP. Max 5MB.</p>
+          <p className="mt-1 text-xs text-ink-soft">
+            PNG, JPEG, or WebP. Max 5MB.
+          </p>
         </div>
       </div>
       <div className="mt-6">

@@ -6,7 +6,10 @@ import { loginAction, type LoginState } from "./actions";
 const initialState: LoginState = null;
 
 export default function LoginForm() {
-  const [state, formAction, isPending] = useActionState(loginAction, initialState);
+  const [state, formAction, isPending] = useActionState(
+    loginAction,
+    initialState,
+  );
 
   return (
     <form action={formAction} className="w-full max-w-xs">

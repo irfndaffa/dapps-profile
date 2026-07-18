@@ -39,7 +39,10 @@ export async function updateSiteContent(
 /** Commits a new profile photo binary and bumps the cache-busting version.
  * Note: if the file extension changes between uploads, the previous image
  * file is left in place unused rather than deleted. */
-export async function updateProfilePhoto(base64Data: string, extension: string) {
+export async function updateProfilePhoto(
+  base64Data: string,
+  extension: string,
+) {
   const current = await readSiteContent();
   const publicPath = `public/profile.${extension}`;
   const servedPath = `/profile.${extension}`;

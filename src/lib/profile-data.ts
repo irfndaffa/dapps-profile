@@ -59,8 +59,8 @@ export type SkillIcon =
 export type Skill = { name: string; icon: SkillIcon };
 export type SkillGroup = { title: string; note: string; items: Skill[] };
 
-export const skillGroups: SkillGroup[] = siteContent.skillGroups as SkillGroup[];
-
+export const skillGroups: SkillGroup[] =
+  siteContent.skillGroups as SkillGroup[];
 
 // Derived, not invented — computed from the experience/skill data above.
 export const stats = [
