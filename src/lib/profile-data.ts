@@ -35,8 +35,7 @@ function yearsSince(start: Date) {
 export const experience: Experience[] = [
   {
     role: "Backend Developer",
-    company: "PT SOD Technology Indonesia",
-    client: "Hyperscal Digital ID",
+    company: "Hyperscal Digital ID",
     period: "Jan 2026 — Present",
     current: true,
     highlights: [
@@ -49,8 +48,7 @@ export const experience: Experience[] = [
   },
   {
     role: "Software Developer",
-    company: "Bumi Amartha Teknologi Mandiri",
-    client: "Mandiri Utama Finance",
+    company: "PT Mandiri Utama Finance",
     period: "Aug 2023 — Jan 2026",
     highlights: [
       "Developed enterprise Master Data and Reporting Systems using Java Spring Boot and JPA.",
@@ -63,8 +61,7 @@ export const experience: Experience[] = [
   },
   {
     role: "Junior Software Developer",
-    company: "Bumi Amartha Teknologi Mandiri",
-    client: "Mandiri Utama Finance",
+    company: "PT Mandiri Utama Finance",
     period: "Aug 2021 — Jul 2023",
     highlights: [
       "Developed enterprise backend applications using Java Spring Boot.",
