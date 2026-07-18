@@ -36,7 +36,7 @@ export const experience: Experience[] = [
   {
     role: "Backend Software Engineer",
     company: "PT Prudential Life Assurance",
-    period: "Jul 2026 — Present",
+    period: "Aug 2026 — Present",
     current: true,
     highlights: [],
   },
