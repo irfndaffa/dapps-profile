@@ -81,44 +81,108 @@
       "title": "Languages",
       "note": "The tools I think in.",
       "items": [
-        { "name": "Java", "icon": "java" },
-        { "name": "Go", "icon": "go" },
-        { "name": "JavaScript", "icon": "javascript" },
-        { "name": "TypeScript", "icon": "typescript" },
-        { "name": "Kotlin", "icon": "kotlin" },
-        { "name": "SQL", "icon": "sql" },
-        { "name": "Python", "icon": "python" }
+        {
+          "name": "Java",
+          "icon": "java"
+        },
+        {
+          "name": "Go",
+          "icon": "go"
+        },
+        {
+          "name": "JavaScript",
+          "icon": "javascript"
+        },
+        {
+          "name": "TypeScript",
+          "icon": "typescript"
+        },
+        {
+          "name": "Kotlin",
+          "icon": "kotlin"
+        },
+        {
+          "name": "SQL",
+          "icon": "sql"
+        },
+        {
+          "name": "Python",
+          "icon": "python"
+        }
       ]
     },
     {
       "title": "Backend",
       "note": "Where I spend most of my time.",
       "items": [
-        { "name": "Spring Boot", "icon": "spring" },
-        { "name": "JPA / Hibernate", "icon": "hibernate" },
-        { "name": "Node.js", "icon": "nodejs" },
-        { "name": "Sequelize ORM", "icon": "sequelize" },
-        { "name": "RESTful APIs", "icon": "api" },
-        { "name": "Microservices", "icon": "microservices" },
-        { "name": "Software AG WebMethods", "icon": "webmethods" }
+        {
+          "name": "Spring Boot",
+          "icon": "spring"
+        },
+        {
+          "name": "JPA / Hibernate",
+          "icon": "hibernate"
+        },
+        {
+          "name": "Node.js",
+          "icon": "nodejs"
+        },
+        {
+          "name": "Sequelize ORM",
+          "icon": "sequelize"
+        },
+        {
+          "name": "RESTful APIs",
+          "icon": "api"
+        },
+        {
+          "name": "Microservices",
+          "icon": "microservices"
+        },
+        {
+          "name": "Software AG WebMethods",
+          "icon": "webmethods"
+        }
       ]
     },
     {
       "title": "Data & Messaging",
       "note": "Moving data, reliably.",
       "items": [
-        { "name": "Apache Kafka", "icon": "kafka" },
-        { "name": "Pentaho ETL", "icon": "pentaho" },
-        { "name": "Apache POI", "icon": "poi" }
+        {
+          "name": "Apache Kafka",
+          "icon": "kafka"
+        },
+        {
+          "name": "Pentaho ETL",
+          "icon": "pentaho"
+        },
+        {
+          "name": "Apache POI",
+          "icon": "poi"
+        }
       ]
     },
     {
       "title": "Mobile",
       "note": "A useful second skill.",
       "items": [
-        { "name": "Android", "icon": "android" },
-        { "name": "Kotlin", "icon": "kotlin" },
-        { "name": "WebView Micro Frontends", "icon": "webview" }
+        {
+          "name": "Android",
+          "icon": "android"
+        },
+        {
+          "name": "Kotlin",
+          "icon": "kotlin"
+        },
+        {
+          "name": "WebView Micro Frontends",
+          "icon": "webview"
+        },
+        {
+          "name": "SwiftUI",
+          "icon": "android"
+        }
       ]
     }
   ]
