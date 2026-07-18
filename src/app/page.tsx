@@ -1,8 +1,8 @@
+import AboutPortrait from "@/components/about-portrait";
 import ExperienceAccordion from "@/components/experience-accordion";
 import MobileNav from "@/components/mobile-nav";
 import Reveal from "@/components/reveal";
 import StatCounter from "@/components/stat-counter";
-import TiltPhoto from "@/components/tilt-photo";
 import {
   achievement,
   activities,
@@ -30,8 +30,12 @@ export default function Home() {
           aria-label="Primary"
           className="mx-auto flex h-12 max-w-5xl items-center justify-between px-5 sm:px-8"
         >
-          <a href="#top" className="text-sm font-semibold tracking-tight">
-            {profile.shortName}
+          <a
+            href="#top"
+            aria-label={profile.name}
+            className="flex h-8 w-8 items-center justify-center rounded-xl bg-accent text-sm font-bold tracking-tight text-white transition-[transform,background-color] duration-200 hover:scale-105 hover:bg-accent-hover active:scale-95"
+          >
+            ID
           </a>
           <div className="hidden items-center gap-7 text-xs text-ink-soft md:flex">
             {navLinks.map((link) => (
@@ -61,8 +65,7 @@ export default function Home() {
         <section className="relative flex min-h-[88svh] flex-col items-center justify-center px-5 pb-20 pt-28 text-center sm:px-8">
           <div className="aurora" />
           <Reveal>
-            <TiltPhoto />
-            <p className="mt-6 text-base font-medium text-ink-soft sm:text-lg">
+            <p className="text-base font-medium text-ink-soft sm:text-lg">
               Hello, I&rsquo;m
             </p>
             <h1 className="mx-auto mt-3 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl">
@@ -114,18 +117,16 @@ export default function Home() {
 
         {/* About */}
         <section id="about" className="bg-paper-alt">
-          <div className="mx-auto max-w-3xl px-5 py-24 sm:px-8 sm:py-32">
+          <AboutPortrait />
+          <div className="relative z-10 mx-auto max-w-3xl px-5 pb-24 sm:px-8 sm:pb-32">
             <Reveal>
-              <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-                About me
-              </h2>
-              <p className="mt-8 text-xl font-medium leading-snug tracking-tight sm:text-2xl">
+              <h2 className="about-heading -mt-36 max-w-2xl text-4xl font-semibold leading-[1.05] tracking-tight sm:-mt-48 sm:text-6xl">
                 Backend first. Reliability always.
-              </p>
+              </h2>
               {profile.about.map((paragraph) => (
                 <p
                   key={paragraph.slice(0, 32)}
-                  className="mt-6 text-base leading-relaxed text-ink-soft sm:text-lg"
+                  className="mt-6 max-w-xl text-base leading-relaxed text-ink-soft sm:text-lg"
                 >
                   {paragraph}
                 </p>

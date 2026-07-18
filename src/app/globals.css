@@ -29,6 +29,8 @@
   --color-hairline: var(--hairline);
   --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display",
     "SF Pro Text", "Helvetica Neue", "Segoe UI", Inter, Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "SFMono-Regular", Menlo, Consolas,
+    "Liberation Mono", monospace;
 }
 
 html {
@@ -138,6 +140,12 @@ h3 {
   min-width: 0;
 }
 
+/* Soft lift behind the About headline so it stays legible while it
+ * overlaps the portrait above the seam, without washing the type out. */
+.about-heading {
+  text-shadow: 0 1px 3px var(--paper-alt);
+}
+
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
@@ -162,6 +170,93 @@ h3 {
   transform: none;
 }
 
+/* Preloader — a brief, quiet unveil on first paint. Transform + opacity
+ * only, and it never blocks anything once it's done its one job. */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+  opacity: 1;
+  transform: scale(1);
+  transition:
+    opacity 550ms var(--ease-out),
+    transform 550ms var(--ease-out);
+}
+
+.preloader-exit {
+  opacity: 0;
+  transform: scale(1.025);
+  pointer-events: none;
+}
+
+.preloader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.preloader-mark {
+  display: flex;
+  height: 3.5rem;
+  width: 3.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1.1rem;
+  background: var(--accent);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: white;
+  animation: preloader-pulse 1.4s var(--ease-out) infinite;
+}
+
+@keyframes preloader-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 0.85;
+  }
+}
+
+.preloader-status {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.preloader-track {
+  width: 7rem;
+  height: 2px;
+  border-radius: 9999px;
+  background: var(--hairline);
+  overflow: hidden;
+}
+
+.preloader-fill {
+  height: 100%;
+  border-radius: 9999px;
+  background: var(--accent);
+  transition: width 120ms linear;
+}
+
+.preloader-pct {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  min-width: 2.6ch;
+  text-align: right;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -174,6 +269,11 @@ h3 {
 
   .skill-chip:hover {
     transform: none;
+  }
+
+  .preloader-mark {
+    animation: none;
+    opacity: 1;
   }
 
   *,
